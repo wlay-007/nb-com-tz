@@ -8,7 +8,7 @@ export default function PostContainer() {
     const [page, setPage] = useState(1);
     const { data: posts, isFetching } = useGetPostsQuery({
         page: page,
-        perPage: 12,
+        perPage: 21,
     });
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function PostContainer() {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 md:p-2 lg:grid-cols-4 lg:p-20 gap-6 rounded-2xl">
+        <div className="grid grid-cols-3 md:grid-cols-2 md:p-2 lg:grid-cols-4 lg:p-2 gap-1 rounded-2xl">
             {posts && posts.map((post: IPost) => <PostCard key={post.id} post={post} />)}
         </div>
     );
