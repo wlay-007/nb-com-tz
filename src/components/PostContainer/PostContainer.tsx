@@ -1,8 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react';
+
 import { useGetPostsQuery } from "@/redux/posts/services/postsApi";
 import IPost from "@/models/IPost";
 import PostCard from "@/components/PostCard/PostCard";
+import {Spin} from "antd";
 
 export default function PostContainer() {
     const [page, setPage] = useState(1);
@@ -29,7 +31,7 @@ export default function PostContainer() {
     }, [page, isFetching]);
 
     if (isFetching && page === 1) {
-        return <div>Loading...</div>;
+        return <Spin size="large"/>;
     }
 
     return (
